@@ -4,7 +4,7 @@ import kotlin.random.Random
 import kotlin.system.exitProcess
 
 private val arrayOfDifficulty = arrayOf("Exit" , "Low" , "Medium" , "Hardcore" )
-lateinit var a:String
+private lateinit var a:String
 
 fun main(){
     onStart()
@@ -20,7 +20,7 @@ fun main(){
 
 
 
-fun onStart(){
+private fun onStart(){
     println("Welcome to Guess the Number game \nPlease insert difficulty: 1 -Low 2 -Medium 3 - Hardcore and 0 - to Exit")
     a = readLine()!!
     if (a== "0") exitProcess(0)
@@ -34,7 +34,7 @@ fun onStart(){
     }
 }
 
-fun onResume(result:Boolean) {
+private fun onResume(result:Boolean) {
     when (result) {
         true -> {
             println("You win the game! Do you want play again? y/n")
@@ -49,7 +49,7 @@ fun onResume(result:Boolean) {
     else exitProcess(0)
 }
 
-fun startGame(difficultyNumber:String) : Boolean {
+private fun startGame(difficultyNumber:String) : Boolean {
     return when (difficultyNumber) {
         "1" -> game(7)
         "2" -> game(5)
@@ -57,7 +57,8 @@ fun startGame(difficultyNumber:String) : Boolean {
         else -> return false
     }
 }
-fun game(tryCount:Int) : Boolean {
+
+private fun game(tryCount:Int) : Boolean {
     var tryTime=tryCount
     val generatedRandom = Random.nextInt(0, 100)
     lateinit var inputNumber: List<Int>
